@@ -13,7 +13,7 @@ CodeMirror.defineSimpleMode("yara", {
      token: ["keyword", null, "variable-2"]},
     // Rules are matched in the order in which they appear, so there is
     // no ambiguity between this one and the one above
-    {regex: /(?:all|and|any|ascii|at|condition|contains|entrypoint|filesize|for|fullword|global|import|in|include|int8|int16|int32|int8be|int16be|int32be|matches|meta|nocase|not|or|of|private|strings|them|uint8|uint16|uint32|uint8be|uint16be|uint32be|wide)\b/,
+    {regex: /(?:all|and|any|ascii|at|condition|contains|entrypoint|filesize|for|fullword|global|import|in|include|int8|int16|int32|int8be|int16be|int32be|matches|meta|nocase|not|or|of|private|strings|them|uint8|uint16|uint32|uint8be|uint16be|uint32be|wide|xor)\b/,
      token: "keyword"},
     {regex: /true|false/, token: "atom"},
     {regex: /0x[a-f\d]+|(?:\.\d+|\d+\.?\d*)/i,
