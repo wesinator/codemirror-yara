@@ -7,7 +7,6 @@ CodeMirror.defineSimpleMode("yara", {
   start: [
     // The regex matches the token, the token property contains the type
     {regex: /"(?:[^\\]|\\.)*?(?:"|$)/, token: "string"},
-    {regex: /(?<![\w\.])([a-fA-F\d?]{2})+(?![\w\.])/, token: "string"},
     // You can match multiple tokens at once. Note that the captured
     // groups must span the whole string in this case
     {regex: /(rule)(\s+)([a-zA-Z_][\w$]*)/,
@@ -17,7 +16,9 @@ CodeMirror.defineSimpleMode("yara", {
     {regex: /(?:all|and|any|ascii|at|condition|contains|entrypoint|filesize|for|fullword|global|import|in|include|int8|int16|int32|int8be|int16be|int32be|matches|meta|nocase|not|or|of|private|strings|them|uint8|uint16|uint32|uint8be|uint16be|uint32be|wide)\b/,
      token: "keyword"},
     {regex: /true|false/, token: "atom"},
-    {regex: /0x[a-f\d]+|[-+]?(?:\.\d+|\d+\.?\d*)(?:e[-+]?\d+)?/i,
+    {regex: /0x[a-f\d]+|(?:\.\d+|\d+\.?\d*)/i,
+     token: "number"},
+    {regex: /(?<![\w\.])([a-fA-F\d?]{2})+(?![\w\.])/,
      token: "number"},
     {regex: /\/\/.*/, token: "comment"},
     // A next property will cause the mode to move to a different state
