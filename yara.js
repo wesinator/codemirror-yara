@@ -43,3 +43,6 @@ CodeMirror.defineSimpleMode("yara", {
     lineComment: "//"
   }
 });
+
+CodeMirror.defineMIME("text/x-yara", "yara");
+CodeMirror.defineMIME("text/yara", "yara");
